@@ -1,7 +1,8 @@
 @import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap";
 
 :root {
-    --primary-color: rgb(103, 103, 192)
+    --primary-color: rgb(103, 103, 192);
+    --secundary-color: rgb(243, 36, 36);
 }
 
 * {
@@ -24,8 +25,8 @@ body {
 }
 
 .links a {
-    font-size: 22px;
-    line-height: 28px;
+    font-size: 20px;
+    line-height: 24px;
     text-decoration: none;
     color: black;
     position: relative;
@@ -56,4 +57,73 @@ body {
 
 .links a.active {
     font-weight: bold;
+}
+
+/* ======== CARD ==========*/
+
+.card {
+    width: 800px;
+    min-height: 400px;
+    background-color: white;
+    margin: 45px auto;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    box-shadow: 0 4px 6px -2px;
+    animation: up 400ms ease-in;
+}
+
+@keyframes up {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.details {
+    padding: 32px;
+}
+
+.details .item {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.details .item:last-child {
+    border: none;
+}
+
+.details h3,
+.details .item div:nth-child(1) {
+    color: #777;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.7px;
+}
+
+.details .item div:nth-child(2) {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+}
+
+.details .item span {
+    background-color: var(--secundary-color);
+    padding: 8px 16px;
+    border-radius: 16px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 8px;
+    margin-right: 4px;
+}
+
+.details h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--secundary-color);
 }
