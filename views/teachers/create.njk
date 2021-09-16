@@ -1,0 +1,63 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+<main>
+    <form class="card" method="POST" action="/teachers">
+        <section class="avatar" style="background: url(https://source.unsplash.com/collection/11492207/500x500) no-repeat center center / cover"></section>
+
+        <section class="details">
+            <h3>Cadastro</h3>
+
+            <div class="item">
+                <div>Avatar</div>
+                <div>
+                    <input type="url" name="avatar_url" placeholder="http://">
+                </div>
+            </div>
+
+            <div class="item">
+                <div>Professor</div>
+                <div>
+                    <input type="text" name="name" placeholder="Nome do professor">
+                </div>
+            </div>
+
+            <div class="item">
+                <div>Idade</div>
+                <div>
+                    <input type="date" name="birth">
+                </div>
+            </div>
+
+            <div class="item">
+                <div>Grau de escolaridade</div>
+                <div>
+                    <select name="select">
+                        <option value="high_school">Ensino Médio Completo</option>
+                        <option value="university">Ensino Superior Completo</option>
+                        <option value="masters">Mestrado</option>
+                        <option value="doctorate">Doutorado</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="item">
+                <div>Tipo de aula</div>
+                <div>
+                    <span><input type="radio" name="location" checked>Presencial</span>
+                    <span><input type="radio" name="location">À distancia</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <div>Acompanhamento</div>
+                <div>
+                    <input type="text" name="services" placeholder="Separe as áreas de atuação por vírgula">
+                </div>
+            </div>
+
+            <button type="submit">Salvar</button>
+        </section>
+    </form>
+</main>
+{% endblock content %}

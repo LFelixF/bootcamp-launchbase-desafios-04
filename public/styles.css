@@ -127,3 +127,49 @@ body {
     font-weight: bold;
     color: var(--secundary-color);
 }
+
+/* CREATE */ 
+
+input {
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="radio"] {
+    width: initial;
+    margin-right: 5px;
+}
+
+select option,
+input::placeholder {
+    font-size: 16px;
+    font-weight: normal;
+    font-style: italic;
+}
+
+select {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+    outline: none;
+}
+
+button[type="submit"] {
+    background-color: var(--primary-color);
+    width: 100%;
+    padding: 8px 32px;
+    border-radius: 12px;
+    margin-top: 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+select,
+input[type="radio"],
+button[type="submit"]:hover {
+    cursor: pointer;
+}

@@ -12,6 +12,7 @@ nunjucks.configure("views", {
 })
 
 server.use(express.static("public"))
+server.use(express.urlencoded({ extended:true }))
 server.use(routes)
 
 server.listen(5000, () => {
