@@ -1,0 +1,69 @@
+<div class="item">
+    <div>Avatar</div>
+    <div>
+        <input type="url" name="avatar_url" placeholder="http://" value="{{ teacher.avatar_url }}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Professor</div>
+    <div>
+        <input type="text" name="name" placeholder="Nome do professor" value="{{ teacher.name }}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Idade</div>
+    <div>
+        <input type="date" name="birth" value="{{ teacher.birth }}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Grau de escolaridade</div>
+    <div>
+        <select name="select">
+            <option value="high_school" 
+            {% if teacher.select == "high_school"%} selected {% endif %}>Ensino Médio Completo</option>
+            <option value="university"
+            {% if teacher.select == "university"%} selected {% endif %}>Ensino Superior Completo</option>
+            <option value="masters"
+            {% if teacher.select == "masters"%} selected {% endif %}>Mestrado</option>
+            <option value="doctorate"
+            {% if teacher.select == "doctorate"%} selected {% endif %}>Doutorado</option>
+        </select>
+    </div>
+</div>
+
+<div class="item">
+    <div>Tipo de aula</div>
+    <div>
+        <span><input 
+                    type="radio" 
+                    name="location" 
+                    value="P" 
+                    {% if teacher.location == "P" %}
+                        checked
+                    {% endif %}
+                >Presencial
+        </span>
+        <span><input 
+                    type="radio" 
+                    name="location" 
+                    value="D"
+                    {% if teacher.location == "D" %}
+                        checked
+                    {% endif %}
+                >À distancia
+        </span>
+    </div>
+</div>
+
+<div class="item">
+    <div>Acompanhamento</div>
+    <div>
+        <input type="text" name="services" placeholder="Separe as áreas de atuação por vírgula" value="{{ teacher.services }}">
+    </div>
+</div>
+
+<button type="submit">Salvar</button>
