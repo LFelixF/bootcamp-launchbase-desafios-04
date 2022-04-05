@@ -1,7 +1,35 @@
 const fs = require("fs")
-const data = require("./data.json")
-const { age, graduation, date } = require("./utils")
+const data = require("../data.json")
+const { age, graduation, date } = require("../utils")
 
+// Redirect
+exports.redirect = (req,res) => {
+    return res.redirect("teachers")
+}
+
+// Page INDEX
+exports.index = (req, res) => {
+    const teachers = []
+    
+    for(let item of data.teachers) {
+        let { services } = item
+        services = item.services.split(",")
+
+        teachers.push({
+            ...item,
+            services
+        })
+    }
+
+    return res.render("teachers/index", { teachers })
+}
+
+// Page CREATE
+exports.create = (req, res) => {
+    return res.render("teachers/create")
+}
+
+// Dados do Formulário de criação
 exports.post = (req, res) => {
     const keys = Object.keys(req.body)
 
@@ -37,6 +65,7 @@ exports.post = (req, res) => {
     })
 }
 
+// Page dos professores
 exports.show = (req, res) => {
     const { id } = req.params
 
@@ -57,6 +86,7 @@ exports.show = (req, res) => {
     return res.render("teachers/show", { teacher })
 }
 
+// Page do formulário de edição
 exports.edit = (req, res) => {
     const { id } =  req.params
 
@@ -68,12 +98,13 @@ exports.edit = (req, res) => {
 
     const teacher = {
         ...foundTeacher,
-        birth: date(foundTeacher.birth)
+        birth: date(foundTeacher.birth).iso
     }
 
     return res.render("teachers/edit", { teacher })
 }
 
+// Dados do formulário de edição
 exports.put = (req, res) => {
     const { id } = req.body
     let index = 0
@@ -103,6 +134,7 @@ exports.put = (req, res) => {
     })
 }
 
+// Apaga dado do database
 exports.delete = (req, res) => {
     const { id } = req.body
 

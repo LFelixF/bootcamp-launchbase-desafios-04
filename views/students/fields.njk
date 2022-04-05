@@ -1,0 +1,65 @@
+<div class="item">
+    <div>Avatar</div>
+    <div>
+        <input type="url" name="avatar_url" placeholder="http://" value="{{ student.avatar_url }}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Estudante</div>
+    <div>
+        <input type="text" name="name" placeholder="Nome do estudante" value="{{ student.name }}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Email</div>
+    <div>
+        <input type="email" name="email" placeholder="exemplo@email.com" value="{{ student.email }}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Data de nascimento</div>
+    <div>
+        <input type="date" name="birth" value="{{ student.birth }}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Ano escolar</div>
+    <div>
+        <select name="select">
+            <option value="5" 
+            {% if student.select == "5"%} selected {% endif %}>5º ano do ensino fundamental
+            </option>
+            <option value="6"
+            {% if student.select == "6"%} selected {% endif %}>6º ano do ensino fundamental
+            </option>
+            <option value="7"
+            {% if student.select == "7"%} selected {% endif %}>7º ano do ensino fundamental
+            </option>
+            <option value="8"
+            {% if student.select == "8"%} selected {% endif %}>8º ano do ensino fundamental
+            </option>
+            <option value="1"
+            {% if student.select == "1"%} selected {% endif %}>1º ano do ensino médio
+            </option>
+            <option value="2"
+            {% if student.select == "2"%} selected {% endif %}>2º ano do ensino médio
+            </option>
+            <option value="3"
+            {% if student.select == "3"%} selected {% endif %}>3º ano do ensino médio
+            </option>
+        </select>
+    </div>
+</div>
+
+<div class="item">
+    <div>Carga horária semanal</div>
+    <div>
+        <input type="number" name="hours" placeholder="10" value="{{ student.hours }}">
+    </div>
+</div>
+
+<button type="submit">Salvar</button>
